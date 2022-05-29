@@ -1,11 +1,20 @@
-import './App.css';
+import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Login from '@/pages/Login'
+import Layout from '@/pages/Layout'
 
-function App() {
+function App () {
   return (
-    <div className="App">
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path='/' element={<Layout />}></Route>
+          <Route path='/login' element={<Login />}></Route>
 
-    </div>
-  );
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
