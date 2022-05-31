@@ -24,8 +24,6 @@ function Login () {
         <Form
           initialValues={{
             remeber: true,
-            password: 246810,
-            username: 13811111111
           }}
           validateTrigger={['onBlur']}
           onFinish={onFinish}

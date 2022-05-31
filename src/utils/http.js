@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { getToken } from './token'
 
 const http = axios.create({
   baseURL: 'http://geek.itheima.net/v1_0',
@@ -6,6 +7,10 @@ const http = axios.create({
 })
 // 添加请求拦截器
 http.interceptors.request.use((config) => {
+  const token = getToken()
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
   return config
 }, (error) => {
   return Promise.reject(error)
@@ -19,6 +24,9 @@ http.interceptors.response.use((response) => {
 }, (error) => {
   // 超出 2xx 范围的状态码都会触发该函数。
   // 对响应错误做点什么
+  if (error.response.status === 401) {
+    History.push('/login')
+  }
   return Promise.reject(error)
 })
 
