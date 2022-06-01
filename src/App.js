@@ -1,5 +1,6 @@
 import './App.css'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, unstable_HistoryRouter as HistoryRouter } from 'react-router-dom'
+import { history } from './utils/history'
 import Login from '@/pages/Login'
 import Layout from '@/pages/Layout'
 import { AuthComponent } from './components/AuthComponent'
@@ -9,7 +10,7 @@ import { Publish } from './pages/Publish'
 
 function App () {
   return (
-    <BrowserRouter>
+    <HistoryRouter history={history}>
       <div className="App">
         <Routes>
           <Route path='/' element={
@@ -26,7 +27,7 @@ function App () {
 
         </Routes>
       </div>
-    </BrowserRouter>
+    </HistoryRouter>
   )
 }
 
