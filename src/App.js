@@ -5,8 +5,8 @@ import Login from '@/pages/Login'
 import Layout from '@/pages/Layout'
 import { AuthComponent } from './components/AuthComponent'
 import { Home } from './pages/Home'
-import { Article } from './pages/Article'
-import { Publish } from './pages/Publish'
+import Article from './pages/Article'
+import Publish from './pages/Publish'
 
 function App () {
   return (
